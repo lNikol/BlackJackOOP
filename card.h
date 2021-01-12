@@ -32,7 +32,5 @@ private:
         CardSuits m_suit;
         
 };
-
-class Deck {
-
-};
+void Card::print_Card();
+int Card::get_Score();
