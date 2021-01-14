@@ -1,30 +1,36 @@
-#include "card.h"
 #include "deck.h"
+#include "card.h"
+#include <iostream>
 Deck::Deck() {
-    //const unsigned short int numberOfShuffles = 5;
     for (int j = 0; j < Card::MAX_SUITS; j++) {
-        for (int k = 0; k <Card::MAX_RANK; k++) {
-            //Создать карту и добавить её в вектор
-            m_Deck.push_back(Card::Card(static_cast<Card::CardRank>(k), static_cast<Card::CardSuits>(j)));
+        for (int k = 0; k < Card::MAX_RANK; k++) {
+            //создать карту и добавить её в вектор
+            m_deck.push_back(Card::Card(static_cast<Card::CardRank>(k), static_cast<Card::CardSuits>(j)));
         }
     }
-};
-void Deck::swap(Card &a, Card &b) {
+}
+void Deck::swap(Card& a, Card& b) {
     Card temp;
     temp = a;
     a = b;
     b = temp;
-};
-
+}
 void Deck::shuffle() {
-    int numberOfShuffles=5;
+    const int numberOfShuffles = 5;
     for (int j = 0; j < numberOfShuffles; j++) {
         //тусуем колоду
-        for (int i = 0; i < Deck_size; i++) {
+        for (int i = 0; i < deck_size; i++) {
             //выбрали карту со случайным номером
-            int randomCard = rand() % Deck_size;
+            int randomCard = rand() % deck_size;
             //обменяли местами текущую и случайно выбранную карту
-            swap(m_Deck[i], m_Deck[randomCard]);
+            swap(m_deck[i], m_deck[randomCard]);
         }
     }
-};
+}
+void Deck::print_deck() {
+    int size = m_deck.size();
+    for (int i = 0; i < size; i++)
+        m_deck[i].print_card();
+    //std::cout << m_deck[i];
+//<< m_deck
+}

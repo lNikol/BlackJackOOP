@@ -1,6 +1,8 @@
 #pragma once
+#include <iostream>
+class Card
+{
 
-class Card {
 public:
     enum CardSuits {
         CARD_DIAMONDS,//бубны
@@ -23,14 +25,17 @@ public:
         CARD_Q,//QUEEN - дама,11
         CARD_K,//KING - король,12
         CARD_A,//ACE - туз,13
-        MAX_RANK
+        MAX_RANK//конец перечисления
     };
     Card();
     Card(CardRank, CardSuits);
+    void print_card();
+    int get_score();
+    CardRank get_rank();
+    CardSuits get_suit();
+    friend std::ostream& operator<<(std::ostream&, Card&);
 private:
-        CardRank m_rank;
-        CardSuits m_suit;
-        
+    CardRank m_rank;
+    CardSuits m_suit;
+
 };
-void Card::print_Card();
-int Card::get_Score();

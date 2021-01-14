@@ -1,15 +1,16 @@
 #pragma once
-#include <iostream>
 #include "card.h"
 #include <vector>
+#include <fstream>
 class Deck {
 private:
-	const int Deck_size = 52;
-	std::vector<Card> m_Deck;
-	void swap(Card &,Card &);
+	const int deck_size = 52;
+	std::vector<Card> m_deck;
+	void swap(Card&, Card&);
 public:
 	Deck();
-	void shuffle(); //Перетасовать колоду
-	Card pop();// Взять верхнюю карту
-	void print_deck();// Показать колоду
+	void shuffle();//перетасовать колоду
+	Card pop();//взять верхнюю карту
+	void print_deck();//печать колоду
+
 };
